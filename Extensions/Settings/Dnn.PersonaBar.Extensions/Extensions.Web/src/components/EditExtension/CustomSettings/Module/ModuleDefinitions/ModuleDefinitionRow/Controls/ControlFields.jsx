@@ -38,36 +38,34 @@ class ControlFields extends Component {
                             onChange={props.onChange.bind(this, "title")} />
                     </div>
                 </GridSystem>
-                <GridSystem>
-                    <div>
-                        <DropdownWithError
-                            label={Localization.get("AddModuleControl_SourceFolder.Label")}
-                            tooltipMessage={Localization.get("AddModuleControl_SourceFolder.HelpText")}
-                            style={inputStyle}
-                            options={props.sourceFolders.map((folder) => {
-                                return {
-                                    label: folder.Value,
-                                    value: folder.Value
-                                };
-                            })}
-                            onSelect={props.onSelectSourceFolder.bind(this)}
-                            value={props.selectedSourceFolder} />
-                        <DropdownWithError
-                            label={Localization.get("AddModuleControl_Source.Label") + "*"}
-                            tooltipMessage={Localization.get("AddModuleControl_Source.HelpText")}
-                            style={inputStyle}
-                            options={props.sourceFiles.map((file) => {
-                                return {
-                                    label: file.Value,
-                                    value: file.Value
-                                };
-                            })}
-                            value={props.controlBeingEdited.source}
-                            error={props.triedToSave && props.error.source}
-                            onSelect={this.onSelect.bind(this, "source")}
-                            />
-                    </div>
-                </GridSystem>
+                <GridCell>
+                    <DropdownWithError
+                        label={Localization.get("AddModuleControl_SourceFolder.Label")}
+                        tooltipMessage={Localization.get("AddModuleControl_SourceFolder.HelpText")}
+                        style={inputStyle}
+                        options={props.sourceFolders.map((folder) => {
+                            return {
+                                label: folder.Value,
+                                value: folder.Value
+                            };
+                        })}
+                        onSelect={props.onSelectSourceFolder.bind(this)}
+                        value={props.selectedSourceFolder} />
+                    <DropdownWithError
+                        label={Localization.get("AddModuleControl_Source.Label") + "*"}
+                        tooltipMessage={Localization.get("AddModuleControl_Source.HelpText")}
+                        style={inputStyle}
+                        options={props.sourceFiles.map((file) => {
+                            return {
+                                label: file.Value,
+                                value: file.Value
+                            };
+                        })}
+                        value={props.controlBeingEdited.source}
+                        error={props.triedToSave && props.error.source}
+                        onSelect={this.onSelect.bind(this, "source")}
+                        />
+                </GridCell>
                 <GridSystem>
                     <div>
                         <DropdownWithError
